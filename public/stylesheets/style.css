@@ -9,3 +9,8 @@ a {
 header, footer {
  background-color: rgb(208, 211, 212);
 }
+
+.testPost {
+  background-color: rgb(220, 220, 220);
+  margin: 10px;
+}
