@@ -4,10 +4,25 @@
   <body>
     <%- include("./partials/header"); %>
     <main>
-    
-        <h1> <%= title %> 
-        </h1>
+        <h1> <%= title %> </h1>
 
+        <div class="testPost">
+          <h2><%= post.title %></h2>
+          <p><%= post.author.full_name %></p>
+          <p><%= post.timestamp %></p>
+          <p><%= post.body %></p>
+        </div>
+        <% if (comments) { %>
+          <ul>
+            <% comments.forEach((comment) => { %>
+              <li class="testPost">
+                <p><%= comment.reader.full_name %></p>
+                <p><%= comment.timestamp %></p>
+                <p><%= comment.body %></p>
+              </li>
+            <% }) %> 
+          </ul>
+        <% } %>
     </main>
     <%- include("./partials/footer"); %>
   </body>

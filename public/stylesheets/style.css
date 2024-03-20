@@ -7,10 +7,10 @@ a {
 }
 
 header, footer {
- background-color: rgb(208, 211, 212);
+ background-color: rgb(230, 230, 230);
 }
 
 .testPost {
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(230, 230, 230);
   margin: 10px;
 }
