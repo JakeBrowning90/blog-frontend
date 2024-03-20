@@ -10,6 +10,11 @@ header, footer {
  background-color: rgb(230, 230, 230);
 }
 
+form {
+  background-color: rgb(192, 236, 255);
+  padding: 10px;
+}
+
 .testPost {
   background-color: rgb(230, 230, 230);
   margin: 10px;

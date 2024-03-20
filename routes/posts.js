@@ -12,6 +12,9 @@ const postController = require("../controllers/postController");
 // router.get("/posts/:id", postController.post_read);
 router.get("/:id", postController.post_read);
 
+router.post("/:id", postController.post_read_add_comment);
+
+
 
 // Update post (YES)
 

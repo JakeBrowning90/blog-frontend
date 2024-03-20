@@ -12,6 +12,20 @@
           <p><%= post.timestamp %></p>
           <p><%= post.body %></p>
         </div>
+
+        <form action="" method="POST">
+          <label for="commentBody">Comment</label>
+          <textarea 
+            name="commentBody" 
+            type="text" 
+            maxlength="500" 
+            rows="10" 
+            placeholder="Max 500 characters" 
+            required>
+          </textarea>
+          <button>Submit</button>
+        </form>
+
         <% if (comments) { %>
           <ul>
             <% comments.forEach((comment) => { %>
