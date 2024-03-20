@@ -13,6 +13,8 @@ header, footer {
 form {
   background-color: rgb(192, 236, 255);
   padding: 10px;
+  display: flex;
+  flex-direction: column ;
 }
 
 .testPost {
