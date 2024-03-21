@@ -3,7 +3,6 @@ const router = express.Router();
 
 const postController = require("../controllers/postController");
 
-
 // Create post (YES)
 
 // Read ALL posts (truncate in Index?)

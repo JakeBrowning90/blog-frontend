@@ -1,10 +1,19 @@
 <header>
     <h1>Placeholder Header</h1>
     <!-- TODO - Conditional header links -->
+
+    <h2>
+        <% if (currentUser) { %>
+            <%= currentUser.first_name + " " + currentUser.last_name %>
+        <% } else { %>
+            Visitor
+        <% } %>
+    </h2>
+
     <nav>
-        <a href="/sign-up">Sign Up</a>
+        <a href="readers/sign-up">Sign Up</a>
         <p>|</p>
-        <a href="">Log In</a>
+        <a href="/readers/log-in">Log In</a>
         <a href="">Log Out</a>
         <p>|</p>
         <a href="">Author Log In</a>
