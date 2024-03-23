@@ -26,7 +26,7 @@
           <button>Submit</button>
         </form>
 
-        <% if (comments) { %>
+        <% if (comments.length > 0) { %>
           <ul>
             <% comments.forEach((comment) => { %>
               <li class="testPost">
@@ -36,6 +36,8 @@
               </li>
             <% }) %> 
           </ul>
+        <% } else { %>
+          <p>There are no comments on this post yet.</p>
         <% } %>
     </main>
     <%- include("./partials/footer"); %>

@@ -9,7 +9,7 @@ router.get('/', async function(req, res, next) {
   res.render('index', { title: 'Blog: Homepage', postList: postList});
 });
 
-// Author Dashboard
+// Author Dashboard (Make a separate site?)
 router.get('/dashboard', async function(req, res, next) {
   const response = await fetch("http://localhost:3000/posts", {mode: 'cors'});
   const postList= await response.json();

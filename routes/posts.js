@@ -13,8 +13,6 @@ router.get("/:id", postController.post_read);
 
 router.post("/:id", postController.post_read_add_comment);
 
-
-
 // Update post (YES)
 
 // Delete post (YES)
