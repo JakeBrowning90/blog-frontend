@@ -15,7 +15,19 @@ exports.log_in_get = asyncHandler(async (req, res, next) => {
 
 // Submit reader login form
 exports.log_in_post = asyncHandler(async (req, res, next) => {
-  res.redirect('/')
+  await fetch('http://localhost:3000/readers/login', {
+    method: "POST",
+    mode: "cors",
+    headers: {
+    "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: req.body.email,
+      password: req.body.password,
+    })
+  })
+  // return response.json();
+  res.redirect('/');
 });
 
 // Get new reader sign-up form
@@ -36,7 +48,7 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
     last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
-    is_admin: false
+    // is_admin: false
     })
   })
   // return response.json();
