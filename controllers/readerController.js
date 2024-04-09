@@ -15,7 +15,7 @@ exports.log_in_get = asyncHandler(async (req, res, next) => {
 
 // Submit reader login form
 exports.log_in_post = asyncHandler(async (req, res, next) => {
-  await fetch('http://localhost:3000/readers/login', {
+  const response = await fetch('http://localhost:3000/readers/login', {
     method: "POST",
     mode: "cors",
     headers: {
@@ -27,6 +27,11 @@ exports.log_in_post = asyncHandler(async (req, res, next) => {
     })
   })
   // return response.json();
+  const loginResponse = await response.json();
+  console.log(loginResponse);
+  localStorage.setItem('email', loginResponse.email)
+  console.log(localStorage.getItem('email'));
+
   res.redirect('/');
 });
 

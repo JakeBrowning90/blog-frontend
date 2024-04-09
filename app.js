@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config()
 
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+
 // const session = require("express-session");
 // const passport = require("passport");
 // const LocalStrategy = require("passport-local").Strategy;
@@ -24,6 +27,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  // res.locals.currentUser = localStorage.getItem('email');
   next();
 });
 

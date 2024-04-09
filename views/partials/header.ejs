@@ -3,8 +3,8 @@
     <!-- TODO - Conditional header links -->
 
     <h2>
-        <% if (currentUser) { %>
-            <%= currentUser.first_name + " " + currentUser.last_name %>
+        <% if (localStorage.getItem('email')) { %>
+            <%= localStorage.getItem('email') %>
         <% } else { %>
             Visitor
         <% } %>
