@@ -29,9 +29,16 @@ exports.log_in_post = asyncHandler(async (req, res, next) => {
   // return response.json();
   const loginResponse = await response.json();
   console.log(loginResponse);
-  localStorage.setItem('email', loginResponse.email)
-  console.log(localStorage.getItem('email'));
+  // Save user info to localStorage
+  localStorage.setItem('email', loginResponse.email);
+  localStorage.setItem('full_name', loginResponse.full_name);
+  localStorage.setItem('id', loginResponse.id);
+  // console.log(localStorage.getItem('email'));
+  res.redirect('/');
+});
 
+exports.log_out = asyncHandler(async (req, res, next) => {
+  localStorage.clear();
   res.redirect('/');
 });
 

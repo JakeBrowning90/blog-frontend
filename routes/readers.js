@@ -8,6 +8,8 @@ router.get("/log-in", readerController.log_in_get);
 
 router.post("/log-in", readerController.log_in_post);
 
+router.get("/log-out", readerController.log_out);
+
 // Create reader (YES)
 router.get('/sign-up', readerController.sign_up_get);
   

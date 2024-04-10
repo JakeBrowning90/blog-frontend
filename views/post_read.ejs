@@ -13,19 +13,23 @@
           <p><%= post.body %></p>
         </div>
 
-        <form action="" method="POST">
-          <label for="commentBody">Comment</label>
-          <textarea 
-            name="commentBody" 
-            type="text" 
-            maxlength="500" 
-            rows="10" 
-            placeholder="Max 500 characters" 
-            required>
-          </textarea>
-          <button>Submit</button>
-        </form>
-
+        <% if (localStorage.length > 0) { %>
+          <form action="" method="POST">
+            <label for="commentBody">Comment</label>
+            <textarea 
+              name="commentBody" 
+              type="text" 
+              maxlength="500" 
+              rows="10" 
+              placeholder="Max 500 characters" 
+              req uired>
+            </textarea>
+            <button>Submit</button>
+          </form>
+        <% } else { %>
+          <p> Sign in to add a comment. </p>
+        <% } %>
+    
         <% if (comments.length > 0) { %>
           <ul>
             <% comments.forEach((comment) => { %>

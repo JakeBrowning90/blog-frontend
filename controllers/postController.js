@@ -15,12 +15,26 @@ exports.post_read = asyncHandler(async (req, res, next) => {
 
 exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
 
-    const comment = new Comment({
-        title: req.body.title,
-        body: req.body.body,
-        timestamp: Date.now(),
-        user: req.user._id
-    });
+    // const comment = new Comment({
+    //     title: req.body.title,
+    //     body: req.body.body,
+    //     timestamp: Date.now(),
+    //     user: storage.getItem('id')
+    // });
+    await fetch('http://localhost:3000/comments/', {
+        method: "POST",
+        mode: "cors",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            body: req.body.commentBody,
+            reader: localStorage.getItem('id'), 
+            post: req.params.id
+            
+        // is_admin: false
+        })
+      })
 
     res.redirect(`/posts/${req.params.id}`);
 });
