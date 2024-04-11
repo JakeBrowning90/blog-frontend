@@ -15,6 +15,8 @@ localStorage = new LocalStorage('./scratch');
 var indexRouter = require('./routes/index');
 var readersRouter = require('./routes/readers');
 var postsRouter = require('./routes/posts');
+var commentsRouter = require('./routes/comments');
+
 
 var app = express();
 
@@ -40,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/readers', readersRouter);
+app.use('/comments', commentsRouter);
 app.use('/posts', postsRouter);
 
 

@@ -64,5 +64,5 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
     })
   })
   // return response.json();
-  res.redirect('/');
+  res.redirect('/readers/log-in');
 });

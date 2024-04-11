@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./partials/head"); %>
+  <body>
+    <%- include("./partials/header"); %>
+    <main>
+        <h1> <%= title %> </h1>
+
+        <div class="testPost">
+
+            <p><%= comment.reader.full_name %></p>
+            <p><%= new Date(comment.timestamp).toUTCString() %></p>
+            <p><%= comment.body %></p>
+            <!-- <p><%= comment.reader._id %></p> -->
+            
+            <!-- <% if ( comment.reader._id == localStorage.getItem('id') ) { %>
+              <form action="/comments/<%= comment._id %>">
+                <button>Remove</button>
+              </form>
+            <% } %>  -->
+        </div>
+
+        <form method="POST">
+            <button>Delete</button>
+        </form>
+
+    </main>
+    <%- include("./partials/footer"); %>
+  </body>
+</html>

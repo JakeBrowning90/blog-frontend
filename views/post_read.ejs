@@ -35,12 +35,14 @@
             <% comments.forEach((comment) => { %>
               <li class="testPost">
                 <p><%= comment.reader.full_name %></p>
-                <p><%= comment.timestamp %></p>
+                <p><%= new Date(comment.timestamp).toUTCString() %></p>
                 <p><%= comment.body %></p>
-                <p><%= comment.reader._id %></p>
+                <!-- <p><%= comment.reader._id %></p> -->
                 
                 <% if ( comment.reader._id == localStorage.getItem('id') ) { %>
-                  <button>Delete</button>
+                  <form action="/comments/<%= comment._id %>">
+                    <button>Delete</button>
+                  </form>
                 <% } %> 
 
               </li>
