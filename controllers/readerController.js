@@ -49,7 +49,7 @@ exports.sign_up_get = asyncHandler(async (req, res, next) => {
 
 // Submit new reader format, POST new reader
 exports.sign_up_post = asyncHandler(async (req, res, next) => {
-  await fetch('http://localhost:3000/readers/', {
+  const response = await fetch('http://localhost:3000/readers/', {
     method: "POST",
     mode: "cors",
     headers: {
@@ -63,6 +63,14 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
     // is_admin: false
     })
   })
-  // return response.json();
-  res.redirect('/readers/log-in');
+  const signupResponse = await response.json();
+  // console.log(signupResponse);
+  if (Array.isArray(signupResponse)) {
+    res.render('reader_create', { 
+      title: 'Sign-Up Form' ,
+      errors: signupResponse
+    });
+  } else {
+    res.redirect('/readers/log-in');
+  }
 });
