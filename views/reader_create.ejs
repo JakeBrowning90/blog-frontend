@@ -20,20 +20,20 @@
           <input name="first_name" 
               type="text" 
               maxlength="20" 
-              value="<%= (locals.userDetail==undefined ? '' : locals.userDetail.first_name) %>"
+              value="<%= (locals.readerDetail==undefined ? '' : locals.readerDetail.first_name) %>"
               required>
           <label for="last_name">Last Name:</label>
           <input name="last_name" 
               type="text" 
               maxlength="20"
-              value="<%= (locals.userDetail==undefined ? '' : locals.userDetail.last_name) %>" 
+              value="<%= (locals.readerDetail==undefined ? '' : locals.readerDetail.last_name) %>" 
               required>
 
           <label for="email">Email:</label>
           <input name="email" 
               type="text" 
               maxlength="30"
-              value="<%= (locals.userDetail==undefined ? '' : locals.userDetail.email) %>" 
+              value="<%= (locals.readerDetail==undefined ? '' : locals.readerDetail.email) %>" 
               required>
 
           <label for="password">Password:</label>

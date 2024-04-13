@@ -68,8 +68,13 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
   // console.log(signupResponse);
   if (Array.isArray(signupResponse)) {
     res.render('reader_create', { 
-      title: 'Sign-Up Form' ,
-      errors: signupResponse
+      title: 'Sign-Up Form',
+      errors: signupResponse,
+      readerDetail: {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+      }
     });
   } else {
     res.redirect('/readers/log-in');
