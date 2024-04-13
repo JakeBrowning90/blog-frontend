@@ -60,6 +60,7 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
     last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
+    confirm_password: req.body.confirm_password,
     // is_admin: false
     })
   })

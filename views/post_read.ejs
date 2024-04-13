@@ -16,14 +16,12 @@
         <% if (localStorage.length > 0) { %>
           <form action="" method="POST">
             <label for="commentBody">Comment</label>
-            <textarea 
-              name="commentBody" 
+            <textarea name="commentBody" 
               type="text" 
               maxlength="500" 
               rows="10" 
               placeholder="Max 500 characters" 
-              req uired>
-            </textarea>
+              required></textarea>
             <button>Submit</button>
           </form>
         <% } else { %>
