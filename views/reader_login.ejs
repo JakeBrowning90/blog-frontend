@@ -5,6 +5,10 @@
     <%- include("./partials/header"); %>
     <main>
 
+        <% if (locals.errorMessage) { %>
+          <p><%= errorMessage %></p>
+        <% } %>  
+
         <form action="" method="POST">
             <label for="email">Email:</label>
             <input name="email" 

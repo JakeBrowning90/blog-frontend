@@ -26,7 +26,16 @@ exports.log_in_post = asyncHandler(async (req, res, next) => {
       password: req.body.password,
     })
   })
+   
   // return response.json();
+  console.log(response.status);
+  if (response.status == 401) {
+    res.render("reader_login", { 
+      title: "Reader Log-In",
+      errorMessage: "Incorrect email/password"
+    });
+  }
+
   const loginResponse = await response.json();
   console.log(loginResponse);
   // Save user info to localStorage
