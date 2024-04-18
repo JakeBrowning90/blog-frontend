@@ -6,8 +6,8 @@
 
     <!-- If logged in, display username and logout -->
     <nav>
-        <% if (localStorage.getItem('email')) { %>
-            <p><%= localStorage.getItem('email') %></p>
+        <% if (localStorage.getItem('full_name')) { %>
+            <p><%= localStorage.getItem('full_name') %></p>
             <a href="/readers/log-out">Log Out</a>
         <% } else { %>
             <a href="/readers/log-in">Log In</a>

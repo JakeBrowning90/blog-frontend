@@ -26,8 +26,9 @@ exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
         mode: "cors",
         headers: {
         "Content-Type": "application/json",
+        "authorization":  localStorage.getItem('token'),
         },
-        body: JSON.stringify({
+        body: JSON.stringify({ 
             body: req.body.commentBody,
             reader: localStorage.getItem('id'), 
             post: req.params.id

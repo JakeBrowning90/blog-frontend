@@ -37,12 +37,12 @@ exports.log_in_post = asyncHandler(async (req, res, next) => {
     });
   } else {
     const loginResponse = await response.json();
-    console.log(loginResponse);
+    // console.log(loginResponse);
     // Save user info to localStorage
-    localStorage.setItem('email', loginResponse.email);
+    // localStorage.setItem('email', loginResponse.email);
     localStorage.setItem('full_name', loginResponse.full_name);
     localStorage.setItem('id', loginResponse.id);
-    // console.log(localStorage.getItem('email'));
+    localStorage.setItem('token', loginResponse.token);
     res.redirect('/');
   }
 });
