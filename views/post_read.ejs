@@ -14,14 +14,16 @@
         </div>
       
         <p class="postDetailBody"><%= post.body %></p>
-      
+        
+        <!-- Comments section -->
+        <p>Discussion: </p>
         <% if (localStorage.length > 0) { %>
           <form action="" method="POST">
-            <label for="commentBody">Comment</label>
+            <label for="commentBody">Add a comment:</label>
             <textarea name="commentBody" 
               type="text" 
               maxlength="500" 
-              rows="10" 
+              rows="6" 
               placeholder="Max 500 characters" 
               required></textarea>
             <button>Submit</button>

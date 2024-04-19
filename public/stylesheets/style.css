@@ -49,6 +49,12 @@ nav{
   justify-content: space-between;
 }
 
+.navLinkDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 form {
   background-color: rgb(192, 236, 255);
   display: flex;
@@ -62,9 +68,7 @@ ul > * {
 }
 
 .postPreview {
-  background-color: rgb(255, 220, 250);
   border-bottom: 1px solid black;
-  /* max-height: 200px; */
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -74,6 +78,7 @@ ul > * {
 .postDetailHeader, .postDetailBody {
   /* background-color: rgb(230, 230, 230); */
   border-bottom: 1px solid black;
+  padding-bottom: 10px;
 }
 
 .postDetailHeader {

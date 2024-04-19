@@ -5,7 +5,7 @@
             <h1>Blog Home</h1>
         </a>
          <!-- If logged in, display username and logout -->
-        <div>
+        <div class="navLinkDiv">
             <% if (localStorage.getItem('full_name')) { %>
                 <p><%= localStorage.getItem('full_name') %></p>
                 <a href="/readers/log-out">Log Out</a>
