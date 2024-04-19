@@ -4,15 +4,17 @@
   <body>
     <%- include("./partials/header"); %>
     <main>
-        <h1> <%= title %> </h1>
-
-        <div class="testPost">
-          <h2><%= post.title %></h2>
-          <p><%= post.author.full_name %></p>
-          <p><%= post.timestamp %></p>
-          <p><%= post.body %></p>
+        <div class="postDetailHeader">
+          <h1><%= post.title %></h1>
+          <h3><%= post.subtitle %></h3>
+          <p>
+            By <%= post.author.full_name %>, 
+            Published <%= new Date(post.timestamp).toUTCString() %>
+          </p>
         </div>
-
+      
+        <p class="postDetailBody"><%= post.body %></p>
+      
         <% if (localStorage.length > 0) { %>
           <form action="" method="POST">
             <label for="commentBody">Comment</label>
