@@ -44,7 +44,7 @@ main {
 }
 
 nav{
-  background-color: rgb(219, 253, 167);
+  /* background-color: rgb(219, 253, 167); */
   display: flex;
   justify-content: space-between;
 }
@@ -78,7 +78,7 @@ form {
 
 button {
   /* width: 33%; */
-  padding: 5px;
+  padding: 2px;
 }
 
 ul > * {
@@ -107,14 +107,22 @@ ul > * {
 }
 
 .commentLI {
-  background-color: rgb(203, 203, 255);
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   padding: 5px;
+  gap: 5px;
+  border-bottom: 1px solid black;
 }
 
 .commentHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  font-weight:bold;
+}
+
+textarea {
+  resize: none;
 }

@@ -8,9 +8,13 @@ require('dotenv').config();
 
 // Get reader login form
 exports.log_in_get = asyncHandler(async (req, res, next) => {
-  res.render("reader_login", { 
+  if (localStorage.getItem('token')) {
+    res.redirect('/');
+  } else {
+    res.render("reader_login", { 
       title: "Reader Log-In",
-  });
+    });
+  }
 });
 
 // Submit reader login form
@@ -28,18 +32,16 @@ exports.log_in_post = asyncHandler(async (req, res, next) => {
   })
    
   // return response.json();
-  console.log(response.status);
+  // console.log(response.status);
 
   if (response.status == 401) {
     res.render("reader_login", { 
       title: "Reader Log-In",
-      errorMessage: "Incorrect email/password"
+      errorMessage: "Incorrect email / password"
     });
   } else {
     const loginResponse = await response.json();
-    // console.log(loginResponse);
     // Save user info to localStorage
-    // localStorage.setItem('email', loginResponse.email);
     localStorage.setItem('full_name', loginResponse.full_name);
     localStorage.setItem('id', loginResponse.id);
     localStorage.setItem('token', loginResponse.token);
@@ -54,7 +56,14 @@ exports.log_out = asyncHandler(async (req, res, next) => {
 
 // Get new reader sign-up form
 exports.sign_up_get = asyncHandler(async (req, res, next) => {
-  res.render('reader_create', { title: 'Sign-Up Form' });
+  
+  if (localStorage.getItem('token')) {
+    res.redirect('/');
+  } else {
+    res.render('reader_create', { 
+      title: 'Sign-Up Form' 
+    });
+  }
 });
 
 // Submit new reader format, POST new reader

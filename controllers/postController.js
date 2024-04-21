@@ -14,14 +14,12 @@ exports.post_read = asyncHandler(async (req, res, next) => {
 });
 
 exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
-
-
     const response = await fetch('http://localhost:3000/comments/', {
         method: "POST",
         mode: "cors",
         headers: {
-        "Content-Type": "application/json",
-        "authorization":  localStorage.getItem('token'),
+            "Content-Type": "application/json",
+            "authorization":  localStorage.getItem('token'),
         },
         body: JSON.stringify({ 
             body: req.body.commentBody,
@@ -35,7 +33,7 @@ exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
         localStorage.clear();
         res.render("reader_login", { 
             title: "Reader Log-In",
-            errorMessage: "Your validation has timed out, please log in again."
+            errorMessage: "Your validation has expired, please log in again."
         });
     }
 
