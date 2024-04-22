@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 
 // app.use(session({ secret: process.env.SESSION, resave: false, saveUninitialized: true }));
 // app.use(passport.session());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   // res.locals.currentUser = localStorage.getItem('email');
