@@ -13,7 +13,7 @@ localStorage = new LocalStorage('./scratch');
 // const LocalStrategy = require("passport-local").Strategy;
 
 var indexRouter = require('./routes/index');
-var readersRouter = require('./routes/readers');
+var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 var commentsRouter = require('./routes/comments');
 
@@ -41,7 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/readers', readersRouter);
+app.use('/users', usersRouter);
 app.use('/comments', commentsRouter);
 app.use('/posts', postsRouter);
 

@@ -31,7 +31,7 @@ exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
 
     if (response.status == 403) {
         localStorage.clear();
-        res.render("reader_login", { 
+        res.redirect("reader_login", { 
             title: "Reader Log-In",
             errorMessage: "Your validation has expired, please log in again."
         });

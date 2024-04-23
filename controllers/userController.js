@@ -19,7 +19,7 @@ exports.log_in_get = asyncHandler(async (req, res, next) => {
 
 // Submit reader login form
 exports.log_in_post = asyncHandler(async (req, res, next) => {
-  const response = await fetch('http://localhost:3000/readers/login', {
+  const response = await fetch('http://localhost:3000/users/login', {
     method: "POST",
     mode: "cors",
     headers: {
@@ -68,7 +68,7 @@ exports.sign_up_get = asyncHandler(async (req, res, next) => {
 
 // Submit new reader format, POST new reader
 exports.sign_up_post = asyncHandler(async (req, res, next) => {
-  const response = await fetch('http://localhost:3000/readers/', {
+  const response = await fetch('http://localhost:3000/users/', {
     method: "POST",
     mode: "cors",
     headers: {
@@ -96,6 +96,6 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
       }
     });
   } else {
-    res.redirect('/readers/log-in');
+    res.redirect('/users/log-in');
   }
 });
