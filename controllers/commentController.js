@@ -40,6 +40,7 @@ exports.comment_delete = asyncHandler(async (req, res, next) => {
     if (deleteResponse.status == 403) {
         res.render("forbidden", {
             title: "Page Forbidden",
+            message: "Your validation ",
         });
     }
     const deleteMessage = await deleteResponse.json();

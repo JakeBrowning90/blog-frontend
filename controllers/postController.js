@@ -23,17 +23,19 @@ exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
         },
         body: JSON.stringify({ 
             body: req.body.commentBody,
-            reader: localStorage.getItem('id'), 
+            user: localStorage.getItem('id'), 
             post: req.params.id
-            // is_admin: false
         })
       })
 
+    // if (response.status == 403) {
+    //     localStorage.clear();
+    //     res.redirect("users/log-in");
+    // }
     if (response.status == 403) {
-        localStorage.clear();
-        res.redirect("reader_login", { 
-            title: "Reader Log-In",
-            errorMessage: "Your validation has expired, please log in again."
+        res.render("forbidden", {
+            title: "Page Forbidden",
+            message: "Your validation has expired. Please log again.",
         });
     }
 
