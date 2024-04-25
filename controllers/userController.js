@@ -80,7 +80,6 @@ exports.sign_up_post = asyncHandler(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     confirm_password: req.body.confirm_password,
-    // is_admin: false
     })
   })
   const signupResponse = await response.json();

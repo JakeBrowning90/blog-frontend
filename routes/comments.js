@@ -1,20 +1,14 @@
 const express = require('express');
 const router = express.Router();
-
 const commentController = require("../controllers/commentController");
 
+// Read comment
 router.get("/:id", commentController.comment_read);
-
+// Delete comment (YES)
 router.post("/:id", commentController.comment_delete);
 
-// Create comment (YES)
-
-// Read ALL comments
-
-// Read comment
-
-// Update comment (YES)
-
-// Delete comment (YES)
+// Create comment (YES) In Post router
+// Read ALL comments (NO)
+// Update comment (NO)
 
 module.exports = router;
