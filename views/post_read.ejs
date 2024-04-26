@@ -37,7 +37,12 @@
             <% comments.forEach((comment) => { %>
               <li class="commentLI">
                 <div class="commentHeader">
-                  <p><%= comment.user.full_name %></p>
+                  <p><%= comment.user.full_name %>
+                    <% if ( comment.user.isAuthor == true ) { %>
+                      (Author)
+                    <% } %> 
+                  </p>
+                  
                   <% if ( comment.user._id == localStorage.getItem('id') ) { %>
                     <form class="deleteForm" action="/comments/<%= comment._id %>">
                       <button class="deleteButton">Delete</button>
