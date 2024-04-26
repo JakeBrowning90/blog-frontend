@@ -10,13 +10,29 @@ exports.comment_read = asyncHandler(async (req, res, next) => {
         },
     });
 
+    // Fails verification
     if (commentResponse.status == 403) {
         res.render("forbidden", {
             title: "Page Forbidden",
+            message: "You do not have access to this page."
         });
-    }
+    } 
+
+    // if (commentResponse.status != 200) {
+    //     res.render("error404", {
+    //         title: "Comment not found.",
+    //         message: "This comment cannot be found. Please check your URL and try again.",
+    //     });
+    // } 
 
     const comment = await commentResponse.json();
+    // Block if not comment's writer or blog author
+    if ((comment.user.id != localStorage.getItem('id')) && localStorage.getItem('isAuthor') == false) {
+        res.render("forbidden", {
+            title: "Page Forbidden",
+            message: "You do not have access to this page."
+        });
+    } 
 
     if (comment == null) {
         res.redirect('/')

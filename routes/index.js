@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/', async function(req, res, next) {
   const response = await fetch("http://localhost:3000/posts", {mode: 'cors'});
   const postList= await response.json();
-  // console.log(postList);
   res.render('index', { title: 'Blog: Homepage', postList: postList});
 });
 

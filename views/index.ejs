@@ -4,7 +4,6 @@
   <body>
     <%- include("./partials/header"); %>
     <main>
-      <!-- <p>Welcome to <%= title %></p> -->
       <% if (postList.length == 0) { %>
         <p>There are no published posts at this time.</p>
       <% } else { %>
@@ -20,9 +19,6 @@
                 By <%= post.user.full_name %>, 
                 Published <%= new Date(post.timestamp).toUTCString() %>
               </p>
-              <!-- <a href=<%= post.url %>>Read more
-
-              </a> -->
             </li>
           <% }) %> 
         </ul>

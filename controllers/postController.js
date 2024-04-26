@@ -1,8 +1,14 @@
 const asyncHandler = require("express-async-handler");
-// const { post } = require("../routes");
 
 exports.post_read = asyncHandler(async (req, res, next) => {
     const postResponse = await fetch(`http://localhost:3000/posts/${req.params.id}`, {mode: 'cors'});
+    if (postResponse.status != 200) {
+        res.render("error404", {
+            title: "Post cannot be found.",
+            message: "This post cannot be found. Please check your URL and try again.",
+        });
+    } 
+
     const post = await postResponse.json();
     const commentsResponse = await fetch(`http://localhost:3000/posts/${req.params.id}/comments`, {mode: 'cors'});
     const comments= await commentsResponse.json();
@@ -28,16 +34,12 @@ exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
         })
       })
 
-    // if (response.status == 403) {
-    //     localStorage.clear();
-    //     res.redirect("users/log-in");
-    // }
     if (response.status == 403) {
         res.render("forbidden", {
             title: "Page Forbidden",
             message: "Your validation has expired. Please log again.",
         });
-    }
+    } 
 
     res.redirect(`/posts/${req.params.id}`);
 });
