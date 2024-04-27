@@ -5,9 +5,9 @@
     <%- include("./partials/header"); %>
     <main>
       <% if (postList.length == 0) { %>
-        <p>There are no published posts at this time.</p>
+        <p class="centeredContent">There are no published posts at this time.</p>
       <% } else { %>
-        <p>Newest:</p>
+        <p class="centeredContent">Newest:</p>
         <ul>
           <% postList.forEach((post) => { %>
             <li class="postPreview">
@@ -22,7 +22,7 @@
             </li>
           <% }) %> 
         </ul>
-        <p>End of post history</p>
+        <p class="centeredContent">End of post history</p>
       <% } %>
     </main>
     <%- include("./partials/footer"); %>
