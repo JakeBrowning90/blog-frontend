@@ -1,7 +1,8 @@
 const asyncHandler = require("express-async-handler");
+const api = require("./apiURLController");
 
 exports.post_read = asyncHandler(async (req, res, next) => {
-    const postResponse = await fetch(`http://localhost:3000/posts/${req.params.id}`, {mode: 'cors'});
+    const postResponse = await fetch(api.address +`posts/${req.params.id}`, {mode: 'cors'});
     if (postResponse.status != 200) {
         res.render("error404", {
             title: "Post cannot be found.",
@@ -10,7 +11,7 @@ exports.post_read = asyncHandler(async (req, res, next) => {
     } 
 
     const post = await postResponse.json();
-    const commentsResponse = await fetch(`http://localhost:3000/posts/${req.params.id}/comments`, {mode: 'cors'});
+    const commentsResponse = await fetch(api.address + `posts/${req.params.id}/comments`, {mode: 'cors'});
     const comments= await commentsResponse.json();
     res.render("post_read", { 
         title: post.title,
@@ -20,7 +21,7 @@ exports.post_read = asyncHandler(async (req, res, next) => {
 });
 
 exports.post_read_add_comment = asyncHandler(async (req, res, next) => {
-    const response = await fetch('http://localhost:3000/comments/', {
+    const response = await fetch(api.address + 'comments/', {
         method: "POST",
         mode: "cors",
         headers: {

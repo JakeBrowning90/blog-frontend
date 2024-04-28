@@ -1,12 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const { format } = require("morgan");
+const api = require("./apiURLController");
 // const { body, validationResult } = require("express-validator");
 
 require('dotenv').config();
 
 // Get new reader sign-up form
-exports.sign_up_get = asyncHandler(async (req, res, next) => {
-  
+exports.sign_up_get = asyncHandler(async (req, res, next) => {  
   if (localStorage.getItem('token')) {
     res.redirect('/');
   } else {
@@ -18,7 +18,7 @@ exports.sign_up_get = asyncHandler(async (req, res, next) => {
 
 // Submit new reader format, POST new reader
 exports.sign_up_post = asyncHandler(async (req, res, next) => {
-  const response = await fetch('http://localhost:3000/users/', {
+  const response = await fetch(api.address + "users", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -62,7 +62,7 @@ exports.log_in_get = asyncHandler(async (req, res, next) => {
 
 // Submit reader login form
 exports.log_in_post = asyncHandler(async (req, res, next) => {
-  const response = await fetch('http://localhost:3000/users/login', {
+  const response = await fetch(api.address + 'users/login', { 
     method: "POST",
     mode: "cors",
     headers: {
