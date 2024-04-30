@@ -16,9 +16,14 @@
               </a>
               <h3><%= post.subtitle %></h3>
               <p>
-                By <%= post.user.full_name %>, 
-                Published <%= new Date(post.timestamp).toUTCString() %>
+                By <%= post.user.full_name %>
               </p>
+              <p>
+                Originally written: <%= new Date(post.createdAt).toUTCString() %>
+              </p>
+              <p>
+                Last updated: <%= new Date(post.updatedAt).toUTCString() %>
+              </p>  
             </li>
           <% }) %> 
         </ul>
